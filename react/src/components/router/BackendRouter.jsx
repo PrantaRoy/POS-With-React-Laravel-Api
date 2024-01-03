@@ -7,6 +7,13 @@ import NotFound from "../modules/errors/NotFound";
 import ServerError from "../modules/errors/ServerError";
 import AddCategory from "../modules/category/AddCategory";
 import AllCategory from "../modules/category/AllCategory";
+import EditCategory from "../modules/category/EditCategory";
+import AddSubCategory from "../modules/subcategory/AddSubcategory";
+import EditSubCategory from "../modules/subcategory/EditSubCategory";
+import AllSubCategory from "../modules/subcategory/AllSubCategory";
+import AddBrand from "../modules/brand/AddBrand";
+import EditBrand from "../modules/brand/EditBrand";
+import AllBrand from "../modules/brand/AllBrand";
 
 const BackendRouter = createBrowserRouter([
      {
@@ -24,8 +31,43 @@ const BackendRouter = createBrowserRouter([
                
                },
                {
+                    path:'/category/edit/:id',
+                    element: <EditCategory/>
+               
+               },
+               {
                     path:'/category/index',
                     element: <AllCategory/>
+               
+               },
+               {
+                    path:'/sub-category/create',
+                    element: <AddSubCategory/>
+               
+               },
+               {
+                    path:'/sub-category/edit/:id',
+                    element: <EditSubCategory/>
+               
+               },
+               {
+                    path:'/sub-category/index',
+                    element: <AllSubCategory/>
+               
+               },
+               {
+                    path:'/brand/create',
+                    element: <AddBrand/>
+               
+               },
+               {
+                    path:'/brand/edit/:id',
+                    element: <EditBrand/>
+               
+               },
+               {
+                    path:'/brand/index',
+                    element: <AllBrand/>
                
                },
                {

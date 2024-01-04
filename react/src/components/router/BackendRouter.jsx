@@ -14,6 +14,9 @@ import AllSubCategory from "../modules/subcategory/AllSubCategory";
 import AddBrand from "../modules/brand/AddBrand";
 import EditBrand from "../modules/brand/EditBrand";
 import AllBrand from "../modules/brand/AllBrand";
+import AddSupplier from "../modules/supplier/AddSupplier";
+import EditSupplier from "../modules/supplier/EditSupplier";
+import AllSupplier from "../modules/supplier/AllSupplier";
 
 const BackendRouter = createBrowserRouter([
      {
@@ -68,6 +71,21 @@ const BackendRouter = createBrowserRouter([
                {
                     path:'/brand/index',
                     element: <AllBrand/>
+               
+               },
+               {
+                    path:'/supplier/create',
+                    element: <AddSupplier/>
+               
+               },
+               {
+                    path:'/supplier/edit/:id',
+                    element: <EditSupplier/>
+               
+               },
+               {
+                    path:'/supplier/index',
+                    element: <AllSupplier/>
                
                },
                {

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BranUpdatedRequest extends FormRequest
+class StoreSupplierRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,18 @@ class BranUpdatedRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'slug' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
             'status' => 'required',
-            'logo' => 'required',
+            'owner_name' => 'required',
+            'owner_mobile' => 'required',
+            'division_id'=> 'required',
+            'district_id'=> 'required',
+            'zone_id'=> 'required',
+            'address'=> 'required',
+            'trade_license'=> 'required',
+            'business_type'=> 'required'
         ];
-    
+        
     }
 }

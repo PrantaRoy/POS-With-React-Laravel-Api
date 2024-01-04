@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\BrandController;
 use App\Http\Controllers\api\CategoryController;
+use App\Http\Controllers\api\SupplierController;
 use App\Http\Controllers\api\SubCategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,5 +49,12 @@ Route::group(['middleware' => 'auth:sanctum'], static function(){
     Route::post('brand/edit/{id}',[BrandController::class,'edit']);
     Route::delete('brand/delete/{id}',[BrandController::class,'delete']);
     Route::post('brand/update',[BrandController::class,'update']);
+
+
+    Route::get('supplier',[SupplierController::class,'index']);
+    Route::post('supplier/store',[SupplierController::class,'store']);
+    Route::post('supplier/edit/{id}',[SupplierController::class,'edit']);
+    Route::delete('supplier/delete/{id}',[SupplierController::class,'delete']);
+    Route::post('supplier/update',[SupplierController::class,'update']);
 });
 

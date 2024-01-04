@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Models\SubCategory;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SubCategoryRequest;
 use App\Http\Requests\UpdateSubCategoryRequest;
 use App\Http\Resources\SubCategoryEditResource;
@@ -14,7 +15,7 @@ class SubCategoryController extends Controller
 {
 
     public function index(Request $request){
-
+        
         $query = SubCategory::query();
         $query = $query->with('createdBy:id,name','category:id,name');
         $query = $query->when($request->search != '', function($q) use($request){

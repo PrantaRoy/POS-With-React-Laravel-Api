@@ -55,6 +55,18 @@ const SideBar = () => {
 
                                 </nav>
                             </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Supplier
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <Link class="nav-link" to="/supplier/create">Add Supplier</Link>
+                                    <Link class="nav-link" to="/supplier/index">All Supplier</Link>
+                                </nav>
+                            </div>
+
                             <div className="sb-sidenav-menu-heading">Addons</div>
                             <a className="nav-link" href="charts.html">
                                 <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>

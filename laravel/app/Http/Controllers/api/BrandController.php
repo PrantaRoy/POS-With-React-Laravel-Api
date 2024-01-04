@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\BrandRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BranUpdatedRequest;
+use App\Http\Resources\BrandEditResource;
 use App\Http\Resources\BrandListResource;
 
 class BrandController extends Controller
@@ -53,4 +55,27 @@ class BrandController extends Controller
          $brand->delete();
          return response()->json(['msg'=> 'Brand Deleted Successfully','cls'=>'success'],200);
      }
+
+
+     public function edit($id){
+        $brand = Brand::find($id);
+        return new BrandEditResource($brand);
+     }
+
+     public function update(BranUpdatedRequest $request){
+        $brand = Brand::find($request->id);
+        if($brand && $brand->logo){
+            deletePhoto(asset('/public/uploads/image/brand/logo/'.$brand->logo));
+        }
+        $data = $request->except(['logo']);
+        $data['created_by'] = auth()->id();
+        $data['slug'] = Str::slug($request->slug);
+        $name = $data['name'];
+        $path= "uploads/image/brand/logo/";
+        if($request->has('image') && !empty($request->image)){
+            $data['logo']  = uploadImage($name,300,300,$path,$request->image); 
+        }
+        $brand->update($data);
+        return response()->json(['msg'=> 'Brand Update Successfully','cls'=>'success'],200);
+    }
 }

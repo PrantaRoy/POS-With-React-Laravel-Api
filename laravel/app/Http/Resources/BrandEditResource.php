@@ -14,6 +14,15 @@ class BrandEditResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'status' => $this->status,
+            'logo' => asset('/public/uploads/image/brand/logo/'.$this->logo),
+            'created_by' => @$this->createdBy->name,
+            'created_at' => $this->created_at->toDayDateTimeString(),
+            'description' => $this->description,
+        ];
     }
 }

@@ -28,7 +28,7 @@ const EditCategory = () =>{
           let reader = new FileReader();
           reader.onloadend = () =>{
                setInput(prevState => ({...prevState,
-                    image : reader.result
+                    logo : reader.result
                }))
           }
           reader.readAsDataURL(file)
